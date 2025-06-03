@@ -1,0 +1,73 @@
+@TUT_11_FIXED_HostAddress = http://localhost:5000
+
+### -- Get Patient Details (Anna Kowalska if already added) -- ###
+GET {{TUT_11_FIXED_HostAddress}}/api/patients/2
+Accept: application/json
+
+### -- Add Prescription for New Patient (Anna Kowalska) -- ###
+POST {{TUT_11_FIXED_HostAddress}}/api/prescriptions
+Content-Type: application/json
+
+{
+  "patient": {
+    "firstName": "Anna",
+    "lastName": "Kowalska",
+    "dateOfBirth": "1985-03-15"
+  },
+  "doctorId": 1,
+  "date": "2025-06-01",
+  "dueDate": "2025-06-10",
+  "medicaments": [
+    {
+      "medicamentId": 4,
+      "name": "Amoxicillin",
+      "dose": 3,
+      "description": "Take every 8 hours for 7 days"
+    }
+  ]
+}
+
+### -- Add Another Prescription for Same Patient (Anna) with Different Medicament -- ###
+POST {{TUT_11_FIXED_HostAddress}}/api/prescriptions
+Content-Type: application/json
+
+{
+  "patient": {
+    "firstName": "Anna",
+    "lastName": "Kowalska",
+    "dateOfBirth": "1985-03-15"
+  },
+  "doctorId": 2,
+  "date": "2025-06-02",
+  "dueDate": "2025-06-12",
+  "medicaments": [
+    {
+      "medicamentId": 5,
+      "name": "Ciprofloxacin",
+      "dose": 2,
+      "description": "Take 2 times daily after meals"
+    }
+  ]
+}
+
+### -- Add Prescription for Another New Patient (Robert Lewandowski) -- ###
+POST {{TUT_11_FIXED_HostAddress}}/api/prescriptions
+Content-Type: application/json
+
+{
+  "patient": {
+    "firstName": "Robert",
+    "lastName": "Lewandowski",
+    "dateOfBirth": "1988-08-21"
+  },
+  "doctorId": 1,
+  "date": "2025-06-03",
+  "dueDate": "2025-06-07",
+  "medicaments": [
+    {
+      "medicamentId": 1,
+      "dose": 1,
+      "description": "Take once in the morning with water"
+    }
+  ]
+}
