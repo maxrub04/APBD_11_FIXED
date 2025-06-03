@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace TUT_11_FIXED.DTOs;
 
 public class PatientDataResponse
